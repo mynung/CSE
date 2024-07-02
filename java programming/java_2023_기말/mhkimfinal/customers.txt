@@ -1,0 +1,8 @@
+greenjoa : 김길동 : 30
+bluejoa : 이길동 : 25
+orangejoa : 홍길동 : 23
+grayjoa : 23
+redjoa : 차길동 : 20
+cyanjoa : 20
+greenjoa : 김길동 : 30
+blackjoa : 25
