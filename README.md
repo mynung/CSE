@@ -8,7 +8,7 @@ konkuk Univ 학부 과정
 <ul>
   <li><a href= "C programming">C Programming - 박소영 교수</a></li>
   <li><a href="java programming">Java programming - 지정희 교수</a></li>
-  <li>discrete mathematics - 박소영 교수</li>
+  <li><a href="discrete mathematics">discrete mathematics - 박소영 교수</a></li>
   <li>linear algebra - 이향원 교수</li>
   <li>data structure - 하영국 교수</li>
   <li>probability and statistics - 이향원 교수</li>
