@@ -1,0 +1,144 @@
+/*202311264 김민홍*/
+
+
+*{
+	margin: 0;
+	padding: 0;
+}
+
+li{
+	list-style: none;
+}
+
+body{
+	font-family: "TImes New Roman", serif;
+}
+
+a{
+	text-decoration: none;
+}
+
+input[type=radio]{
+	display: none;
+}
+
+
+header{
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 200px;
+	background-color: white;
+	text-align: center;
+	line-height: 200px;
+	font-size: 100px;
+	font-weight: bold;
+	font-family: 'Nanum Pen Script';
+	border-bottom: 1px solid  black;
+}
+
+footer{
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 120px;
+	background-color: white;
+	border-top: 1px solid black;
+}
+
+footer > p{
+	height: 50px;
+	margin-top: 10px;
+	text-align: center;
+	line-height: 50px;
+	font-size: 25px;
+	font-weight: bold;
+}
+
+aside{
+	position: fixed;
+	left: 0;
+	top: 200px;
+	bottom: 120px;
+	width: 200px;
+	padding-top: 100px;
+	border-right: 1px solid black;
+}
+
+#content{
+	margin-top: 200px;
+	margin-left: 200px;
+	
+}
+
+.story{
+	display: none;
+}
+
+#menu1:checked ~ #content > section > .story:nth-of-type(1){
+	display: block;
+}
+
+#menu2:checked ~ #content > section > .story:nth-of-type(2){
+	display: block;
+}
+
+
+section{
+	width: 600px;
+	height: 1000px;
+	margin: 0 auto;
+	background-color: #ebfbff;
+	padding: 20px 30px;
+}
+
+h1 {
+	text-align: center;
+	margin-bottom: 50px;
+}
+
+.story {
+	display:none;
+	padding-top:20px;
+}
+
+.menu {
+	display:block;
+	margin-top:20px;
+	width: 200px;
+	text-align: center;
+	font-size: 30px;
+	font-weight:bold;
+	color:blue;
+}
+
+#date {
+	margin: 10px 50px;
+	display:inline-block;
+	width: 200px;
+	height: 30px;
+	font-size: 20px;
+	font-weight:bold;
+	border-radius: 15px;
+	padding: 0 10px;
+}
+
+#b1 {
+	display:inline-block;
+	width: 200px;
+	height: 30px;
+	margin: 10px 20px;
+	border: 1px solid black;
+	border-radius: 15px;
+	font-size: 15px;
+	font-weight:bold;
+}
+
+.lab  {
+	text-align: center;
+	font-size: 30px;
+	font-weight:bold;
+	margin-top:30px;
+}

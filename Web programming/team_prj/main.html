@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>벽돌 of legend</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="index.js"></script>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <video id="background-video" autoplay muted loop class="background-video">
+      <source src="src/video/login.mp4" type="video/mp4" />
+    </video>
+
+    <div id="main-screen">
+      <div id="shadow">
+        <img id="shadow-img" src="src/index_img/shadow.png" />
+
+        <div>
+          <img id="logo" src="src/index_img/logo.png" alt="" />
+        </div>
+        <div id="game_start" class="main-button1" onclick="playClickSound()">
+          게임 시작
+        </div>
+
+        <div id="setting" class="main-button2" onclick="showSettings()">
+          환경 설정
+        </div>
+
+        <div id="how_to_play" class="main-button2" onclick="playClickSound()">
+          게임 방법
+        </div>
+      </div>
+
+      <style>
+        video {
+          position: fixed;
+          top: 0;
+          left: 0;
+          min-width: 100%;
+          min-height: 100%;
+          width: auto;
+          height: auto;
+          z-index: -1;
+        }
+
+        #logo {
+          width: 700px;
+          position: absolute;
+          top: 50px;
+          left: 20px;
+        }
+
+        /* 버튼 위치만 배치 */
+        #game_start {
+          position: absolute;
+          top: 361px;
+          left: 60px;
+        }
+
+        #setting {
+          position: absolute;
+          top: 400px;
+          left: 530px;
+        }
+
+        #how_to_play {
+          position: absolute;
+          top: 400px;
+          left: 750px;
+        }
+
+        /* 버튼색별 디자인 */
+        .main-button1 {
+          width: 400px;
+          height: 120px;
+          line-height: 120px;
+          font-weight: bold;
+          background-color: #c8aa6e;
+          font-size: 3.6em;
+          text-align: center;
+        }
+
+        .main-button2 {
+          width: 200px;
+          height: 80px;
+          line-height: 80px;
+          background-color: #59c1de;
+          font-size: 2em;
+          text-align: center;
+        }
+
+        .main-button1:hover {
+          cursor: pointer;
+          filter: drop-shadow(2px 2px 20px #c8aa6e98);
+        }
+
+        .main-button2:hover {
+          cursor: pointer;
+          filter: drop-shadow(1px 1px 10px #59c1de9a);
+        }
+
+        #shadow {
+          padding: 0;
+          margin: 0;
+          position: relative;
+          width: 100%;
+          height: 100%;
+        }
+
+        #shadow-img {
+          width: 100%;
+          height: 700px;
+        }
+      </style>
+
+      <div id="screen-difficulty">
+        <h2>Stage</h2>
+        <div class="buttons">
+          <div class="container">
+            <div class="header">
+              <div class="icon"></div>
+              <div class="title">소환사의 협곡</div>
+            </div>
+
+            <div class="content">
+              <p>바론으로부터 납치당한 포로를 구출하세요 !</p>
+              <ul>
+                <li>
+                  <button
+                    class="stage-button"
+                    data-stage="1"
+                    onclick="playClickSound()"
+                  >
+                    stage 1
+                  </button>
+                </li>
+                <li>
+                  <button
+                    class="stage-button"
+                    data-stage="2"
+                    onclick="playClickSound()"
+                  >
+                    stage 2
+                  </button>
+                </li>
+                <li>
+                  <button
+                    class="stage-button"
+                    data-stage="3"
+                    onclick="playClickSound()"
+                  >
+                    stage 3
+                  </button>
+                </li>
+              </ul>
+            </div>
+
+            <button class="confirm-button" onclick="playClickSound()"></button>
+          </div>
+        </div>
+      </div>
+      <!------------ 환경설정 화면임 ----------->
+      <div id="screen-setting">
+        <h2>환경 설정</h2>
+        <div class="settings">
+          <div class="sphere-selection">
+            <h3>구체 스킨 설정</h3>
+            <div class="spheres">
+              <img
+                src="src/img/구체1.png"
+                id="sphere1"
+                class="sphere"
+                onclick="selectSphere(1)"
+              />
+              <img
+                src="src/img/구체2.png"
+                id="sphere2"
+                class="sphere"
+                onclick="selectSphere(2)"
+              />
+              <img
+                src="src/img/구체3.png"
+                id="sphere3"
+                class="sphere"
+                onclick="selectSphere(3)"
+              />
+              <img
+                src="src/img/구체4.png"
+                id="sphere4"
+                class="sphere"
+                onclick="selectSphere(4)"
+              />
+              <img
+                src="src/img/구체5.png"
+                id="sphere5"
+                class="sphere"
+                onclick="selectSphere(5)"
+              />
+              <img
+                src="src/img/구체6.png"
+                id="sphere6"
+                class="sphere"
+                onclick="selectSphere(6)"
+              />
+            </div>
+          </div>
+
+          <div class="setting-option">
+            <!-- <label for="effect-sound">효과음</label> -->
+            <div>효과음</div>
+            <label class="toggle-switch">
+              <input type="checkbox" id="effect-sound" checked />
+              <span class="slider round"></span>
+            </label>
+            <div>배경음악</div>
+            <!-- <label for="background-music">배경음악</label> -->
+            <label class="toggle-switch">
+              <input type="checkbox" id="background-music" checked />
+              <span class="slider round"></span>
+            </label>
+          </div>
+        </div>
+        <button
+          class="save-button"
+          onclick="playClickSound(); clearScreen(); $('#screen').show();"
+        >
+          뒤로가기
+        </button>
+      </div>
+      <!------------ 게임방법 화면임 ----------->
+
+      <div id="screen-howPlay">
+        <h2>게임 방법</h2>
+        <div class="howPlays">
+          <div class="howPlaysContents">
+            <div class="imgBox">
+              <button class="arrow prev">&#10094;</button>
+              <img
+                id="howPlayImg"
+                src="src/howPlayImg/skill.png"
+                alt=" "
+                width="800px"
+                height="auto"
+              />
+              <button class="arrow next">&#10095;</button>
+            </div>
+
+            <style>
+              .imgBox {
+                width: 60%;
+                height: auto;
+                position: relative;
+              }
+
+              #howPlayImg {
+                border: 3px solid #c8aa6e;
+              }
+
+              /* .slider {
+              justify-content: center;
+              align-items: center;
+              
+              margin: 0;
+              background-color: #f0f0f0;
+
+
+              width: 80%;
+              max-width: 600px;
+              overflow: hidden;
+              border-radius: 10px;
+              text-align: center; */
+              /* } */
+
+              .arrow {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                background-color: rgba(0, 0, 0, 0.301);
+
+                border: none;
+                color: #c8aa6e;
+                font-size: 4em;
+                padding: 10px;
+                z-index: 10;
+              }
+
+              .arrow:hover {
+                cursor: pointer;
+                font-size: 4.5em;
+              }
+
+              .prev {
+                left: 10px;
+              }
+
+              .next {
+                right: 10px;
+              }
+            </style>
+            <script>
+              document.addEventListener("DOMContentLoaded", () => {
+                var images = [
+                  "src/howPlayImg/skill.png",
+                  "src/howPlayImg/stage1.png",
+                  "src/howPlayImg/stage2.png",
+                  "src/howPlayImg/stage3.png",
+                ];
+                var index = 0;
+                var howPlayImg = document.getElementById("howPlayImg");
+                var prevButton = document.querySelector(".prev");
+                var nextButton = document.querySelector(".next");
+
+                prevButton.addEventListener("click", () => {
+                  index = index === 0 ? images.length - 1 : index - 1;
+                  howPlayImg.src = images[index];
+                });
+
+                nextButton.addEventListener("click", () => {
+                  index = index === images.length - 1 ? 0 : index + 1;
+                  howPlayImg.src = images[index];
+                });
+              });
+            </script>
+          </div>
+
+          <button
+            class="save-button"
+            onclick="playClickSound(); clearScreen(); $('#screen').show();"
+          >
+            뒤로가기
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 게임 -->
+    <div id="loading">
+      <p id="typed-text"></p>
+    </div>
+    <div id="game-main">
+      <div id="game-text"></div>
+      <div id="menu-bar">
+        <img src="src/img/하트3.png" id="heart" alt="" width="100" />
+        <div id="skills">
+          <img
+            src="src/img/아리 Q 아이콘.jpg"
+            alt=""
+            width="50"
+            class="skill"
+          />
+          <img
+            src="src/img/아리 W 아이콘.jpg"
+            alt=""
+            width="50"
+            class="skill"
+          />
+          <img
+            src="src/img/아리 E 아이콘.jpg"
+            alt=""
+            width="50"
+            class="skill"
+          />
+        </div>
+      </div>
+      <canvas id="game-play" width="500" height="300"> </canvas>
+    </div>
+    <div id="game-over-screen">
+      <audio src="src/sound/gameover_bgm.mp3" id="gameOver-sound"></audio>
+      <div id="game-over-text">Game Over</div>
+      <button id="restart-button" onclick="restartGame()">메인 화면</button>
+    </div>
+
+    <div id="gamewin">
+      <h1 id="stage-clear-text">Stage Clear!!</h1>
+      <div id="result-container">
+        <div id="tier-section">
+          <img id="tier-image" src="" alt="티어 이미지" />
+          <p id="tier-text">티어 글씨</p>
+        </div>
+        <div id="score-section">
+          <p>Score : <span id="final-score">000</span> points</p>
+        </div>
+      </div>
+
+      <button id="restart-button" onclick="restartGame()">메인 화면</button>
+      <button id="next-stage" onclick="nextStage()">다음 스테이지</button>
+    </div>
+    <div id="end">
+      <img src="src/img/포로.png" alt="" />
+      <p>아리는 바론을 물리치고 포로와 행복하게 살았답니다~</p>
+      <button id="restart-button" onclick="restartGame()">메인 화면</button>
+    </div>
+    <audio
+      id="bg-music"
+      src="src/sound/background_music.mp3"
+      loop
+      autoplay
+    ></audio>
+    <audio id="click-sound" src="src/sound/button_click.mp3"></audio>
+    <audio id="ball-sound" src="src/sound/공 튀기는 소리.mp3"></audio>
+  </body>
+</html>

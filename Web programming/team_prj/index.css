@@ -1,0 +1,681 @@
+@font-face {
+  font-family: "DungGeunMo";
+  src: url("src/font/DungGeunMo.woff") format("truetype");
+}
+
+/* 기본 태그 초기화 */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "DungGeunMo", serif;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  font-family: "DungGeunMo", serif;
+}
+
+body {
+  overflow: hidden; /* 스크롤 막기 */
+}
+
+#screen {
+  max-width: 800px;
+  background-color: black;
+
+  opacity: 0.8;
+  margin: 0 auto;
+  /* height: 100%; */
+}
+
+header {
+  width: 100%;
+  height: 150px;
+  text-align: center;
+}
+
+header > img {
+  width: 800px;
+  height: auto;
+  opacity: 1;
+
+  /* font-weight: bold; */
+  /* font-size: 70px; */
+  /* color: white; */
+  justify-content: center;
+  /* line-height: 150px; */
+}
+
+main {
+  width: 100%;
+  box-shadow: 1px 1px 18px 33px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 1px 1px 18px 33px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 1px 1px 18px 33px rgba(0, 0, 0, 0.75);
+  height: 90%;
+}
+
+footer {
+  width: 100%;
+  height: 100px;
+}
+
+footer > p {
+  font-size: 1.5em;
+  height: 100px;
+  /* line-height: 100px; */
+  color: #dbad50;
+  text-align: center;
+}
+/* 아이디 태그 시작 */
+
+#main-screen {
+  background-image: url("src/img/아리배경화면2.jpg");
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  background-position: center;
+  position: relative;
+}
+
+input[type="button"] {
+  text-decoration: none;
+  border: 0;
+  background-color: transparent;
+}
+
+/* 다른 화면 안보이게 */
+#screen-difficulty,
+#screen-setting,
+#screen-howPlay,
+#game-main,
+#loading {
+  display: none;
+  background-size: cover;
+  background-position: center;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-image: url("src/img/loading.png");
+  background-size: cover;
+}
+
+#screen-difficulty {
+  background-image: url("src/img/background-image-url.jpg");
+}
+
+#screen-setting {
+  display: none;
+}
+
+#screen-howPlay {
+  display: none;
+}
+
+#game-main {
+  display: none;
+}
+
+/*로딩 화면*/
+
+#loading {
+  display: none;
+  background-color: black;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+#typed-text {
+  position: relative;
+  padding: 300px 0;
+  margin: 0 auto;
+  color: white;
+  font-size: 40px;
+  width: 800px;
+}
+
+/*커서 바*/
+#cursor {
+  animation: blink 1s infinite;
+  font-size: 40px;
+  position: absolute;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.buttons {
+  width: 60%;
+  height: 100%;
+  margin: 50px auto;
+}
+
+.button {
+  position: relative;
+  color: white;
+  width: 100%;
+  margin-bottom: 100px;
+  height: 100px;
+  font-size: 45px;
+  cursor: pointer;
+  font-family: "DungGeunMo", serif;
+}
+
+.diff-button {
+  position: relative;
+  color: white;
+  width: 100%;
+  margin-bottom: 100px;
+  height: 100px;
+  font-size: 45px;
+  cursor: pointer;
+}
+.button:hover {
+  color: yellow;
+}
+
+#screen-difficulty > h2 {
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  font-size: 50px;
+  padding-top: 20px;
+}
+
+/* 성욱 */
+
+#screen-difficulty {
+  text-align: center;
+}
+
+.container {
+  vertical-align: middle;
+  text-align: center;
+  background: rgba(0, 0, 0);
+  filter: drop-shadow(0px 50px 50px #ff57fc);
+
+  padding: 20px;
+  border-radius: 10px;
+  width: 400px;
+  margin: 100px auto; /* 수정된 부분 */
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.icon {
+  width: 50px;
+  height: 50px;
+  background-image: url("src/img/lol_icon.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-bottom: 10px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.content p {
+  margin-bottom: 20px;
+  color: white;
+}
+
+.content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.content ul li {
+  margin: 10px 0;
+}
+
+.stage-button {
+  background: url("src/img/button_unclick.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  border: none;
+  color: #ffffff;
+  font-size: 1em;
+  cursor: pointer;
+  padding: 10px;
+  width: 150px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.stage-button:hover {
+  background-image: url("src/img/button_hover.png");
+}
+
+.stage-button:active {
+  background-image: url("src/img/button_press.png");
+}
+
+.stage-button.clicked {
+  background-image: url("src/img/button_click.png");
+}
+
+.confirm-button {
+  background: url("src/img/confirm.png") no-repeat center center;
+
+  background-size: contain;
+  border: none;
+  width: 150px;
+  height: 50px;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+}
+.confirm-button:hover {
+  width: 160px;
+}
+.confirm-button:active {
+  background-image: url("src/img/confirm_press.png");
+}
+
+/* 본 게임 화면 */
+
+#game-main {
+  background-image: url("src/img/게임배경화면.png");
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100vh;
+}
+#game-text {
+  font-size: 100px;
+  font-weight: bold;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 700px;
+  height: 700px;
+  color: white;
+  width: 50%;
+}
+
+/* 환경 설정 화면 */
+
+#screen-setting {
+  text-align: center;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+}
+
+#screen-setting h2 {
+  font-size: 4em;
+  margin-top: 20px;
+}
+
+#screen-setting .settings {
+  background-color: black;
+  width: 700px;
+  margin: auto;
+  margin-top: 50px;
+  border: 4px solid #c8aa6e;
+}
+#screen-setting .settings .setting-option {
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#screen-setting .settings .setting-option div {
+  margin-left: 30px;
+
+  margin-right: 10px;
+  font-size: 24px;
+}
+
+#screen-setting .settings .setting-option label {
+  margin-right: 10px;
+  font-size: 24px;
+}
+
+.toggle-switch {
+  margin-right: 30px;
+}
+
+#screen-setting .settings .sphere-selection {
+  margin-top: 30px;
+  margin-bottom: 100px;
+}
+
+#screen-setting .settings .sphere-selection h3 {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+#screen-setting .settings .sphere-selection .spheres {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+#screen-setting .settings .sphere-selection .spheres img {
+  width: 70px;
+  height: 70px;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+#screen-setting .settings .sphere-selection .spheres img.selected {
+  border: 3px solid yellow;
+  transform: scale(1.1);
+}
+
+#screen-setting .save-button {
+  width: 200px;
+  height: 60px;
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  background-color: #4caf50;
+  font-size: 2em;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+#screen-setting .save-button:hover {
+  background-color: #428b46;
+}
+
+/* ---------게임 방법 화면--------- */
+
+#screen-howPlay {
+  text-align: center;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+}
+
+#screen-howPlay h2 {
+  font-size: 4em;
+  margin-top: 20px;
+}
+
+#screen-howPlay .howPlays {
+  margin-top: 50px;
+}
+
+#screen-howPlay .howPlays .howPlaysContents {
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#screen-howPlay .save-button {
+  width: 200px;
+  height: 60px;
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  background-color: #eec248;
+  color: black;
+  font-size: 2em;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+#screen-howPlay .save-button:hover {
+  background-color: #c09e3f;
+}
+/* 토글 스위치 스타일 */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #4caf50;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+/* 토글 스위치 둥근 스타일 */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* 캔버스 */
+canvas {
+  border: 2px solid white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#menu-bar {
+  width: 1200px;
+  position: absolute;
+  left: 20%;
+  top: 5%;
+}
+
+#menu-bar:last-child {
+  background-color: #ffffff;
+}
+#heart {
+  display: inline-block;
+  padding-right: 700px;
+  width: 150px;
+}
+.skill {
+  width: 60px;
+  padding: 0 10px;
+}
+#skills {
+  display: inline-block;
+  padding: 0 30px;
+}
+
+/* 게임 오버 화면 */
+#game-over-screen {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  background: url("src/img/background-image-url.jpg") no-repeat center center;
+  background-size: cover;
+  text-align: center;
+  color: white;
+  font-family: "DungGeunMo", serif;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2; /* 게임 화면 위에 표시되도록 설정 */
+}
+
+#game-over-text {
+  font-size: 6em;
+  margin-top: 15%;
+  text-shadow: 0 0 10px #8a2be2, 0 0 20px #8a2be2, 0 0 30px #8a2be2;
+  animation: neon-glow 1.5s infinite alternate;
+}
+
+@keyframes neon-glow {
+  from {
+    text-shadow: 0 0 5px #8a2be2, 0 0 10px #8a2be2, 0 0 15px #8a2be2,
+      0 0 20px #8a2be2, 0 0 25px #8a2be2, 0 0 30px #8a2be2;
+  }
+  to {
+    text-shadow: 0 0 20px #8a2be2, 0 0 30px #8a2be2, 0 0 40px #8a2be2,
+      0 0 50px #8a2be2, 0 0 60px #8a2be2, 0 0 70px #8a2be2;
+  }
+}
+
+#restart-button {
+  width: 300px;
+  height: 70px;
+  background-color: #8a2be2;
+  color: white;
+  font-size: 2.5em;
+  border: none;
+  margin-top: 40px; /* 세로 간격을 넓히기 위해 margin-top 값을 증가 */
+  cursor: pointer;
+  text-shadow: 0 0 10px #8a2be2;
+  animation: button-glow 1.5s infinite alternate;
+}
+
+@keyframes button-glow {
+  from {
+    box-shadow: 0 0 10px #8a2be2, 0 0 20px #8a2be2, 0 0 30px #8a2be2,
+      0 0 40px #8a2be2;
+  }
+  to {
+    box-shadow: 0 0 20px #8a2be2, 0 0 30px #8a2be2, 0 0 40px #8a2be2,
+      0 0 50px #8a2be2;
+  }
+}
+
+#restart-button:hover {
+  background-color: #551a8b;
+}
+
+/* 게임 클리어 화면 */
+#gamewin {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  background: url("src/img/background-image-url.jpg") no-repeat center center;
+  background-size: cover;
+  color: white;
+  text-align: center;
+  font-family: "DungGeunMo", serif;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  padding-top: 10%;
+}
+
+#stage-clear-text {
+  font-size: 5em;
+  margin-bottom: 20px;
+}
+
+#result-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+#tier-section,
+#score-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#tier-image {
+  width: 200px;
+  height: auto;
+}
+
+#tier-text {
+  font-size: 2em;
+  margin-top: 10px;
+}
+
+#final-score {
+  font-size: 3em;
+  color: yellow;
+}
+
+#gamewin button {
+  width: 300px;
+  height: 70px;
+  background-color: #8a2be2;
+  color: white;
+  font-size: 2em;
+  border: none;
+  margin: 10px;
+  cursor: pointer;
+  text-shadow: 0 0 10px #8a2be2;
+}
+
+#gamewin button:hover {
+  background-color: #551a8b;
+}
+
+.hidden {
+  display: none;
+}
+
+/* 엔딩 화면 */
+#end {
+  background-image: url("src/img/end.png");
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+}
